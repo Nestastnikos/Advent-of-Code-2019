@@ -1,4 +1,8 @@
-﻿
+﻿open System.IO
 
-// For more information see https://aka.ms/fsharp-console-apps
-printfn "Hello from F#"
+let result =
+  File.ReadLines("input.txt")
+  |> Seq.map(fun n -> (int n/3) - 2)
+  |> Seq.reduce(fun a b -> a + b)
+
+printfn "%d" result
